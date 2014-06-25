@@ -1,13 +1,15 @@
 [{
-    "__modelname__": "Allergy",    
+    "__modelname__": "Allergy",
     "allergic_reaction": "CodedValue",
     "category": "CodedValue",
-    "drug_allergen": "CodedValue",
-    "drug_class_allergen": "CodedValue",
-    "food_allergen": "CodedValue",
-    "severity": "CodedValue"
+    "allergen": "CodedValue",
+    "severity": "CodedValue",
+    "start_date": "Date",
+    "end_date": "Date",
+    "notes": "String"
 },
 {
     "__modelname__": "AllergyExclusion",
-    "name": "CodedValue"
+    "name": "CodedValue",
+    "date": "Date"
 }]

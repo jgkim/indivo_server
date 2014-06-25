@@ -1,12 +1,25 @@
+from lxml import etree
+from copy import deepcopy
+from django.core import serializers
+from django.utils import simplejson
+
 from indivo.data_models.options import DataModelOptions
 from indivo.rdf.rdf import PatientGraph
 from indivo.serializers import DataModelSerializers
 from indivo.validators import ValueInSetValidator, ExactValueValidator, NonNullValidator
+from indivo.lib.simpledatamodel import MODEL_NAME_KEY
+from indivo.serializers.json import IndivoJSONEncoder
 
 SNOMED = 'http://purl.bioontology.org/ontology/SNOMEDCT/'
 RXNORM = 'http://purl.bioontology.org/ontology/RXNORM/'
 NUI = 'http://purl.bioontology.org/ontology/NDFRT/'
 UNII = 'http://fda.gov/UNII/'
+
+VALID_ALLERGEN_SYSTEMS = [
+    RXNORM, # Drug allergy or intolerance
+    NUI,    # Drug class allergy or intolerance
+    UNII,   # Food or environmental allergy or intolerance
+]
 
 VALID_CATEGORY_IDS = [
     '414285001', # Food allergy
@@ -31,15 +44,81 @@ VALID_EXCLUSION_IDS = [
     '409137002', # No known history of drug allergy
 ]
 
+OLD_ALLERGEN_FIELD_PREFIXES = (
+    'drug_allergen_',
+    'drug_class_allergen_',
+    'other_allergen_',
+)
+
 class AllergySerializers(DataModelSerializers):
     def to_rdf(query, record=None, carenet=None):
         if not record:
             record = carenet.record
-        
         graph = PatientGraph(record)
+        
         graph.addAllergyList(query.results.iterator())
         graph.addResponseSummary(query)
         return graph.toRDF()
+
+    def to_xml(queryset, result_count, record=None, carenet=None):
+        root = serializers.serialize("indivo_xml", queryset)
+        for model_etree in root.findall('Model'):
+            model_name = model_etree.get('name')
+            if model_name == 'Allergy':
+                system = None
+                allergen_fields = []
+
+                for field_etree in model_etree.findall('Field'):
+                    field_name = field_etree.get('name')
+                    if field_name and field_name.startswith('allergen_'):
+                        allergen_fields.append(field_etree)
+                        if field_name == 'allergen_code_system':
+                            system = field_etree.text
+
+                for field_etree in allergen_fields:
+                    el = deepcopy(field_etree)
+                    if system == RXNORM:
+                        el.set('name', el.get('name').replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[0]))
+                    elif system == NUI:
+                        el.set('name', el.get('name').replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[1]))
+                    elif system == UNII:
+                        el.set('name', el.get('name').replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[2]))
+                    model_etree.append(el)
+
+        return etree.tostring(root)
+
+    def to_json(queryset, result_count, record=None, carenet=None):
+        data = serializers.serialize("indivo_python", queryset)
+        for obj in data:
+            if obj["__modelname__"] == 'Allergy':
+                system = None
+                allergen_fields = []
+
+                for field_name, field_value in obj.iteritems():
+                    if field_name.startswith('allergen_'):
+                        allergen_fields.append(field_name)
+                        if field_name == 'allergen_code_system':
+                            system = field_value
+
+                for field_name in allergen_fields:
+                    if system == RXNORM:
+                        obj[field_name.replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[0])] = obj[field_name]
+                    elif system == NUI:
+                        obj[field_name.replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[1])] = obj[field_name]
+                    elif system == UNII:
+                        obj[field_name.replace('allergen_', OLD_ALLERGEN_FIELD_PREFIXES[2])] = obj[field_name]
+
+        return simplejson.dumps(data, cls=IndivoJSONEncoder)
+
+    def to_sdmx(model_etree):
+        for field_etree in model_etree.findall('Field'):
+            field_name = field_etree.get('name')
+            if field_name and field_name.startswith(OLD_ALLERGEN_FIELD_PREFIXES):
+                for old in OLD_ALLERGEN_FIELD_PREFIXES:
+                    field_name = field_name.replace(old, 'allergen_', 1)
+                field_etree.set('name', field_name)
+
+        return model_etree
 
 class AllergyOptions(DataModelOptions):
     model_class_name = 'Allergy'
@@ -53,9 +132,7 @@ class AllergyOptions(DataModelOptions):
         'category_code_system': [ExactValueValidator(SNOMED)],
         'category_code_identifier': [ValueInSetValidator(VALID_CATEGORY_IDS)],
         'category_code_title': [NonNullValidator()],
-        'drug_allergen_code_system': [ExactValueValidator(RXNORM, nullable=True)],
-        'drug_class_allergen_code_system': [ExactValueValidator(NUI, nullable=True)],
-        'other_allergen_code_system': [ExactValueValidator(UNII, nullable=True)],
+        'allergen_code_system': [ValueInSetValidator(VALID_ALLERGEN_SYSTEMS, nullable=True)],
         'severity_title': [NonNullValidator()],
         'severity_code_system': [ExactValueValidator(SNOMED)],
         'severity_code_identifier': [ValueInSetValidator(VALID_SEVERITY_IDS)],

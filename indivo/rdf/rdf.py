@@ -498,17 +498,21 @@ class PatientGraph(object):
         if category:
             g.add((aNode, SP['category'], self.newCodedValue(category)))
 
-        drug_allergen = self._getCodedValueFromField(allergy, 'drug_allergen', [SPCODE["RxNorm_Ingredient"]])
-        if drug_allergen:
-            g.add((aNode, SP['drugAllergen'], self.newCodedValue(drug_allergen)))
+        RXNORM = 'http://purl.bioontology.org/ontology/RXNORM/'
+        NUI = 'http://purl.bioontology.org/ontology/NDFRT/'
+        UNII = 'http://fda.gov/UNII/'
 
-        drug_class_allergen = self._getCodedValueFromField(allergy, 'drug_class_allergen', [SPCODE["NDFRT"]])
-        if drug_class_allergen:
-            g.add((aNode, SP['drugClassAllergen'], self.newCodedValue(drug_class_allergen)))
-
-        other_allergen = self._getCodedValueFromField(allergy, 'other_allergen', [SPCODE["UNII"]])
-        if other_allergen:
-            g.add((aNode, SP['otherAllergen'], self.newCodedValue(other_allergen)))
+        allergen = self._getCodedValueFromField(allergy, 'allergen')
+        if allergen:
+            if allergen['code']['system'] == RXNORM:
+                allergen['code']['classes'] = [SPCODE["RxNorm_Ingredient"]]
+                g.add((aNode, SP['drugAllergen'], self.newCodedValue(allergen)))
+            elif allergen['code']['system'] == NUI:
+                allergen['code']['classes'] = [SPCODE["NDFRT"]]
+                g.add((aNode, SP['drugClassAllergen'], self.newCodedValue(allergen)))
+            elif allergen['code']['classes'] == UNII:
+                allergen['code']['classes'] = [SPCODE["UNII"]]
+                g.add((aNode, SP['otherAllergen'], self.newCodedValue(other_allergen)))
             
         return aNode
 

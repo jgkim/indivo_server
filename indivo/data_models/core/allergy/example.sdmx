@@ -8,19 +8,21 @@
     <Field name="category_code_title">Drug allergy</Field>
     <Field name="category_code_system">http://purl.bioontology.org/ontology/SNOMEDCT/</Field>
     <Field name="category_code_identifier">416098002</Field>
-    <Field name="drug_class_allergen_title">Sulfonamide Antibacterial</Field>
-    <Field name="drug_class_allergen_code_title">Sulfonamide Antibacterial</Field>
-    <Field name="drug_class_allergen_code_system">http://purl.bioontology.org/ontology/NDFRT/</Field>
-    <Field name="drug_class_allergen_code_identifier">N0000175503</Field>
+    <Field name="allergen_title">Sulfonamide Antibacterial</Field>
+    <Field name="allergen_code_title">Sulfonamide Antibacterial</Field>
+    <Field name="allergen_code_system">http://purl.bioontology.org/ontology/NDFRT/</Field>
+    <Field name="allergen_code_identifier">N0000175503</Field>
     <Field name="severity_title">Severe</Field>
     <Field name="severity_code_title">Severe</Field>
     <Field name="severity_code_system">http://purl.bioontology.org/ontology/SNOMEDCT/</Field>
     <Field name="severity_code_identifier">24484000</Field>
+    <Field name="start_date">2007-06-12</Field>
   </Model>
   <Model name="AllergyExclusion">
   	<Field name="name_title">No known allergies</Field>
     <Field name="name_code_title">No known allergies</Field>
     <Field name="name_code_identifier">160244002</Field>
     <Field name = "name_code_system">http://purl.bioontology.org/ontology/SNOMEDCT/</Field>
+    <Field name="date">2005-05-05T00-00-00Z</Field>
   </Model>
 </Models>
