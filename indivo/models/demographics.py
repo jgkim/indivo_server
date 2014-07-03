@@ -10,7 +10,7 @@ from django.core import serializers
 from django.utils import simplejson
 
 from base import BaseModel, DataModelBase
-from indivo.fields import AddressField, NameField, TelephoneField
+from indivo.fields import AddressField, NameField, TelephoneField, ValueAndUnitField
 from indivo.lib.iso8601 import parse_iso8601_datetime
 from indivo.rdf.rdf import PatientGraph
 from indivo.serializers.json import IndivoJSONEncoder
@@ -20,6 +20,8 @@ FIELDS = ('bday',
           'email', 
           'ethnicity', 
           'gender', 
+          'gestational_age_at_birth_value', 
+          'gestational_age_at_birth_unit', 
           'preferred_language', 
           'race', 
           'name_given', 
@@ -52,6 +54,7 @@ class Demographics(BaseModel):
     email = models.CharField(max_length=200, null=True)
     ethnicity = models.CharField(max_length=200, null=True)
     gender = models.CharField(max_length=50)
+    gestational_age_at_birth = ValueAndUnitField()
     name = NameField()
     preferred_language = models.CharField(max_length=200, null=True)
     race = models.CharField(max_length=200, null=True)
@@ -86,6 +89,11 @@ class Demographics(BaseModel):
         attrs['race'] = root.findtext(_tag('race'))
         attrs['preferred_language'] = root.findtext(_tag('preferredLanguage'))
         
+        gestationalAgeAtBirthElement = root.find(_tag('gestationalAgeAtBirth'))
+        if gestationalAgeAtBirthElement is not None:
+            attrs['gestational_age_at_birth_value'] = gestationalAgeAtBirthElement.findtext(_tag('value'))
+            attrs['gestational_age_at_birth_unit'] = gestationalAgeAtBirthElement.findtext(_tag('unit'))
+
         nameElement = root.find(_tag('Name'))
         attrs['name_family'] = nameElement.findtext(_tag('familyName'))
         attrs['name_given'] = nameElement.findtext(_tag('givenName'))

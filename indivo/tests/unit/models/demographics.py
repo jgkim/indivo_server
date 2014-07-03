@@ -54,7 +54,7 @@ class DemographicsModelUnitTests(InternalTests):
         demographics = demographics[0]
         
         # check Demographics
-        self.assertEqual(len(demographics.findall('Field')), 22, "expected 22 fields on test Demographics")
+        self.assertEqual(len(demographics.findall('Field')), 24, "expected 22 fields on test Demographics")
         self.assertEqual(demographics.get('name'), 'Demographics')
         self.assertEqual(demographics.find('Field[@name="bday"]').text, '1939-11-15T00:00:00Z')
         self.assertEqual(demographics.find('Field[@name="email"]').text, 'test@fake.org')

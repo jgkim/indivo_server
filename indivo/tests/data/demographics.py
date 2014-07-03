@@ -96,6 +96,12 @@ TEST_DEMOGRAPHICS_RDFXML = '''
             <sp:race>caucasian</sp:race>
             <sp:medicalRecordNumber rdf:resource="Indivo Recordhttp://indivo.org/records/65c9e500-fdcf-4ba3-87ed-6eb265344d84"/>
             <v:bday rdf:datatype="http://www.w3.org/2001/XMLSchema#date">1939-11-15</v:bday>
+            <sp:gestationalAgeAtBirth>
+                <sp:ValueAndUnit>
+                    <sp:value>37.6</sp:value>
+                    <sp:unit>wk</sp:unit>
+                </sp:ValueAndUnit>
+            </sp:gestationalAgeAtBirth>
         </rdf:Description>
         <rdf:Description rdf:nodeID="_d9d1cbfe-46b9-4534-80cc-c3558cde379f">
             <v:given-name>Bruce</v:given-name>
@@ -171,6 +177,8 @@ TEST_DEMOGRAPHICS_SDMJ = '''
             "tel_2_number": "555-6666",
             "__modelname__": "Demographics",
             "adr_city": "Gotham",
+            "gestational_age_at_birth_value": null,
+            "gestational_age_at_birth_unit": null,
             "ethnicity": "Scottish",
             "adr_postalcode": "90210",
             "name_family": "Wayne",

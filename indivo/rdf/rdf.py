@@ -144,6 +144,10 @@ class PatientGraph(object):
         if tel2Node:
             self.g.add((dNode, VCARD['tel'], tel2Node))
 
+        if demographics.gestational_age_at_birth_value and demographics.gestational_age_at_birth_unit:
+            g.add((dNode, SP['gestationalAgeAtBirth'], self.valueAndUnit(demographics.gestational_age_at_birth_value,
+                                                                      demographics.gestational_age_at_birth_unit)))
+
         self.addStatement(dNode)
 
     def addMedList(self, meds, order_results=False):

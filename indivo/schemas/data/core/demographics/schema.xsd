@@ -47,6 +47,13 @@
     </xs:sequence>
   </xs:complexType>
   
+  <xs:complexType name="ValueAndUnit">
+    <xs:sequence>
+      <xs:element name="value" type="xs:double" minOccurs="0" maxOccurs="1" />
+      <xs:element name="unit" type="xs:string" minOccurs="0" maxOccurs="1" />
+    </xs:sequence>
+  </xs:complexType>
+
   <xs:element name="Demographics">
     <xs:complexType>
       <xs:sequence>
@@ -54,6 +61,7 @@
         <xs:element name="gender" type="indivo:GenderType" minOccurs="1" />
         <xs:element name="email" type="xs:string" minOccurs="0" />
         <xs:element name="ethnicity" type="xs:string" minOccurs="0" />
+        <xs:element name="gestationalAgeAtBirth" type="indivo:ValueAndUnit" minOccurs="0" maxOccurs="1" />
         <xs:element name="preferredLanguage" type="xs:string" minOccurs="0" />
         <xs:element name="race" type="xs:string" minOccurs="0" />
         <xs:element name="Name" type="indivo:Name" minOccurs="1"/>

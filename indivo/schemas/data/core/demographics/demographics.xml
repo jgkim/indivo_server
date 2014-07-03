@@ -4,6 +4,10 @@
     <gender>male</gender>
     <email>test@fake.org</email>
     <ethnicity>Scottish</ethnicity>
+    <gestationalAgeAtBirth>
+        <value>37.6</value>
+        <unit>wk</unit>
+    </gestationalAgeAtBirth>
     <preferredLanguage>EN</preferredLanguage>
     <race>caucasian</race>
     <Name>
