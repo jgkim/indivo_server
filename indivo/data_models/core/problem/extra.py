@@ -6,10 +6,17 @@ from django.utils import simplejson
 from indivo.data_models.options import DataModelOptions
 from indivo.rdf.rdf import PatientGraph
 from indivo.serializers import DataModelSerializers
-from indivo.validators import ExactValueValidator, NonNullValidator
+from indivo.validators import ValueInSetValidator, ExactValueValidator, NonNullValidator
 from indivo.serializers.json import IndivoJSONEncoder
 
 SNOMED_URI = 'http://purl.bioontology.org/ontology/SNOMEDCT/'
+
+VALID_STATUS_IDS = [
+    '55561003',  # Active
+    '73425007',  # Inactive
+    '7087005',   # Intermittent
+    '413322009', # Resolved
+]
 
 class ProblemSerializers(DataModelSerializers):
 
@@ -82,5 +89,7 @@ class ProblemOptions(DataModelOptions):
         'name_code_system': [ExactValueValidator(SNOMED_URI)],
         'name_code_identifier': [NonNullValidator()],
         'name_code_title': [NonNullValidator()],
+        'status_code_system': [ExactValueValidator(SNOMED_URI, nullable=True)],
+        'status_code_identifier': [ValueInSetValidator(VALID_STATUS_IDS, nullable=True)],
         'start_date': [NonNullValidator()],
         }
