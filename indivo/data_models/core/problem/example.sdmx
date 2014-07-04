@@ -14,8 +14,8 @@
 		<Field name="encounters">
 			<Models>
 				<Model name="Encounter">
-					<Field name="startDate">2010-02-16T12:00:00Z</Field>
-					<Field name="endDate">2010-02-16T16:00:00Z</Field>
+					<Field name="start_date">2010-02-16T12:00:00Z</Field>
+					<Field name="end_date">2010-02-16T16:00:00Z</Field>
 					<Field name="facility_name">Wonder Hospital</Field>
 					<Field name="facility_adr_country">Australia</Field>
 					<Field name="facility_adr_city">WonderCity</Field>
@@ -29,13 +29,13 @@
 					<Field name="provider_tel_1_type">w</Field>
 					<Field name="provider_tel_1_number">1-235-947-3452</Field>
 					<Field name="provider_tel_1_preferred_p">true</Field>
-					<Field name="type_code_title">Ambulatory encounter</Field>
-					<Field name="type_code_system">http://smartplatforms.org/terms/codes/EncounterType#</Field>
-					<Field name="type_code_identifier">ambulatory</Field>
+					<Field name="encounter_type_code_title">Ambulatory encounter</Field>
+					<Field name="encounter_type_code_system">http://smartplatforms.org/terms/codes/EncounterType#</Field>
+					<Field name="encounter_type_code_identifier">ambulatory</Field>
 				</Model>
 				<Model name="Encounter">
-					<Field name="startDate">2009-05-16T12:00:00Z</Field>
-					<Field name="endDate">2009-05-16T16:00:00Z</Field>
+					<Field name="start_date">2009-05-16T12:00:00Z</Field>
+					<Field name="end_date">2009-05-16T16:00:00Z</Field>
 					<Field name="facility_name">Wonder Hospital</Field>
 					<Field name="facility_adr_country">Australia</Field>
 					<Field name="facility_adr_city">WonderCity</Field>
@@ -49,9 +49,9 @@
 					<Field name="provider_tel_1_type">w</Field>
 					<Field name="provider_tel_1_number">1-235-947-3452</Field>
 					<Field name="provider_tel_1_preferred_p">true</Field>
-					<Field name="type_code_title">Ambulatory encounter</Field>
-					<Field name="type_code_system">http://smartplatforms.org/terms/codes/EncounterType#</Field>
-					<Field name="type_code_identifier">ambulatory</Field>
+					<Field name="encounter_type_code_title">Ambulatory encounter</Field>
+					<Field name="encounter_type_code_system">http://smartplatforms.org/terms/codes/EncounterType#</Field>
+					<Field name="encounter_type_code_identifier">ambulatory</Field>
 				</Model>
 			</Models>
 		</Field>

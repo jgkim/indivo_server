@@ -3,8 +3,9 @@ from django.db import models
 from indivo.fields import CodedValueField, OrganizationField, ProviderField
 
 class Encounter(Fact):
-    startDate = models.DateTimeField(null=True)
-    endDate = models.DateTimeField(null=True)
+    encounter_type = CodedValueField()
+    start_date = models.DateTimeField(null=True)
+    end_date = models.DateTimeField(null=True)
     facility = OrganizationField()
     provider = ProviderField()
-    type = CodedValueField()
+    notes = models.TextField(null=True)

@@ -636,9 +636,9 @@ class PatientGraph(object):
 
         eNode = URIRef(encounter.uri())
         g.add((eNode, RDF.type, SP['Encounter']))
-        g.add((eNode, SP['startDate'], Literal(encounter.startDate)))      
-        if encounter.endDate:
-            g.add((eNode, SP['endDate'], Literal(encounter.endDate)))
+        g.add((eNode, SP['startDate'], Literal(encounter.start_date)))      
+        if encounter.end_date:
+            g.add((eNode, SP['endDate'], Literal(encounter.end_date)))
                 
         orgNode = self.organization(encounter, 'facility')
         if orgNode:
@@ -648,7 +648,7 @@ class PatientGraph(object):
         if provNode:
             g.add((eNode, SP['provider'], provNode))
                 
-        encounter_type = self._getCodedValueFromField(encounter, 'type', [SPCODE["EncounterType"]])
+        encounter_type = self._getCodedValueFromField(encounter, 'encounter_type', [SPCODE["EncounterType"]])
         if encounter_type:
             g.add((eNode, SP['encounterType'], self.newCodedValue(encounter_type)))
         return eNode
