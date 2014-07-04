@@ -3,8 +3,10 @@ from indivo.fields import CodedValueField
 from django.db import models
 
 class Problem(Fact):
-  startDate = models.DateTimeField(null=True)
-  endDate = models.DateTimeField(null=True)
   name = CodedValueField()
+  status = CodedValueField()
+  start_date = models.DateTimeField(null=True)
+  end_date = models.DateTimeField(null=True)
+  stop_reason = models.TextField(null=True)
   notes = models.TextField(null=True)
   encounters = models.ManyToManyField('Encounter', null=True)

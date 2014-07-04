@@ -248,15 +248,19 @@ class PatientGraph(object):
             g.add((pnode, RDF.type, SP['Problem']))
             if order_results:
                 problem_collection.append(pnode)
-            g.add((pnode, SP['startDate'], Literal(prob.startDate)))      
-            if prob.endDate:
-                g.add((pnode, SP['endDate'], Literal(prob.endDate)))
+            g.add((pnode, SP['startDate'], Literal(prob.start_date)))      
+            if prob.end_date:
+                g.add((pnode, SP['endDate'], Literal(prob.end_date)))
             if prob.notes:
                 g.add((pnode, SP['notes'], Literal(prob.notes)))
                 
             problem_name = self._getCodedValueFromField(prob, 'name', [SPCODE['SNOMED']])    
             g.add((pnode, SP['problemName'], self.newCodedValue(problem_name)))
             
+            problem_status = self._getCodedValueFromField(prob, 'status', [SPCODE['SNOMED']])
+            if problem_status:
+                g.add((pnode, SP['problemStatus'], self.newCodedValue(problem_status)))
+
             self.addStatement(pnode)
             
             for encounter in prob.encounters.all():
