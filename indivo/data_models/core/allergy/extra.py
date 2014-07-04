@@ -7,7 +7,6 @@ from indivo.data_models.options import DataModelOptions
 from indivo.rdf.rdf import PatientGraph
 from indivo.serializers import DataModelSerializers
 from indivo.validators import ValueInSetValidator, ExactValueValidator, NonNullValidator
-from indivo.lib.simpledatamodel import MODEL_NAME_KEY
 from indivo.serializers.json import IndivoJSONEncoder
 
 SNOMED = 'http://purl.bioontology.org/ontology/SNOMEDCT/'
@@ -116,7 +115,7 @@ class AllergySerializers(DataModelSerializers):
             if field_name and field_name.startswith(OLD_ALLERGEN_FIELD_PREFIXES):
                 for old in OLD_ALLERGEN_FIELD_PREFIXES:
                     field_name = field_name.replace(old, 'allergen_', 1)
-                field_etree.set('name', field_name)
+                    field_etree.set('name', field_name)
 
         return model_etree
 
