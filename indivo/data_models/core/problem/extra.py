@@ -73,11 +73,9 @@ class ProblemSerializers(DataModelSerializers):
         for field_etree in model_etree.findall('Field'):
             field_name = field_etree.get('name')
             if field_name == 'startDate':
-                field_name = field_name.replace('startDate', 'start_date')
-                field_etree.set('name', field_name)
+                field_etree.set('name', 'start_date')
             elif field_name == 'endDate':
-                field_name = field_name.replace('endDate', 'end_date')
-                field_etree.set('name', field_name)
+                field_etree.set('name', 'end_date')
 
         return model_etree
 
