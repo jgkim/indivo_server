@@ -34,7 +34,7 @@ CORE_DIRS = (
     'problem',
     'procedure',
     'clinical_note',
-    'vitals',
+    'vital_signs',
     )
 
 TEST_MODELS = (
