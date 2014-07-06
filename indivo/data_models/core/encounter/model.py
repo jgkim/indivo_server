@@ -8,4 +8,4 @@ class Encounter(Fact):
     end_date = models.DateTimeField(null=True)
     facility = OrganizationField()
     provider = ProviderField()
-    notes = models.TextField(null=True)
+    notes = models.CharField(max_length=600, null=True)

@@ -9,7 +9,7 @@ class Allergy(Fact):
     severity = CodedValueField()
     start_date = models.DateTimeField(null=True)
     end_date = models.DateTimeField(null=True)
-    notes = models.TextField(null=True)
+    notes = models.CharField(max_length=600, null=True)
 
 class AllergyExclusion(Fact):
     name = CodedValueField()

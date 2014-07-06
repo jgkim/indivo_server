@@ -16,3 +16,4 @@ class VitalSigns(Fact):
     respiratory_rate = VitalSignField()
     blood_glucose = BloodGlucoseField()
     cholesterol = CholesterolField()
+    notes = models.CharField(max_length=600, null=True)
