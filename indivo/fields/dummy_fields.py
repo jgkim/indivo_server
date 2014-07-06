@@ -350,3 +350,47 @@ class BloodPressureField(DummyField):
         'diastolic': (VitalSignField, {}),
         'systolic': (VitalSignField, {}),
         }
+
+class BloodGlucoseField(DummyField):
+    """ A field for representing a blood glucose measurement. 
+
+    Creating a BloodGlucoseField named 'bg', for example, will (under the hood) create the fields:
+
+    * ``bg_level``, the value of the blood glucose measurement (a :py:class:`~indivo.fields.VitalSignField`)
+    * ``bg_context``, the context in which the measurement was taken (a :py:class:`~indivo.fields.CodedValueField`)
+
+    When describing instances of your model (either when defining a
+    :ref:`transform output <transform-output-types>` or when referencing fields using 
+    :ref:`the Indivo Query API <queryable-fields>`), you must refer to these field names, not the original
+    ``bg`` field name.
+
+    """
+    
+    replacements = {
+        'level': (VitalSignField, {}),
+        'context': (CodedValueField, {}),
+        }
+
+class CholesterolField(DummyField):
+    """ A field for representing a cholesterol measurement. 
+
+    Creating a CholesterolField named 'chol', for example, will (under the hood) create the fields:
+
+    * ``chol_ldl``, the low-density lipoprotein (LDL) cholesterol (a :py:class:`~indivo.fields.VitalSignField`)
+    * ``chol_hdl``, the high-density lipoprotein (HDL) cholesterol (a :py:class:`~indivo.fields.VitalSignField`)
+    * ``chol_triglyceride``, the triglyceride level (a :py:class:`~indivo.fields.VitalSignField`)
+    * ``chol_total``, the total cholesterol (a :py:class:`~indivo.fields.VitalSignField`)
+
+    When describing instances of your model (either when defining a
+    :ref:`transform output <transform-output-types>` or when referencing fields using 
+    :ref:`the Indivo Query API <queryable-fields>`), you must refer to these field names, not the original
+    ``chol`` field name.
+
+    """
+    
+    replacements = {
+        'ldl': (VitalSignField, {}),
+        'hdl': (VitalSignField, {}),
+        'triglyceride': (VitalSignField, {}),
+        'total': (VitalSignField, {}),
+        }

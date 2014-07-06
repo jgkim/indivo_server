@@ -31,6 +31,8 @@ LAB_STATUS_URI="http://smartplatforms.org/terms/codes/LabStatus#%s"
 SP = Namespace("http://smartplatforms.org/terms#")
 SPCODE = Namespace("http://smartplatforms.org/terms/codes/")
 SPAPI = Namespace("http://smartplatforms.org/terms/api#")
+COPHR = Namespace("http://vocab.cophr.org/")
+COPHR_CODE = Namespace("http://code.cophr.org/")
 DC = Namespace("http://purl.org/dc/elements/1.1/")
 DCTERMS = Namespace("http://purl.org/dc/terms/")
 FOAF = Namespace("http://xmlns.com/foaf/0.1/")
@@ -146,7 +148,7 @@ class PatientGraph(object):
 
         if demographics.gestational_age_at_birth_value and demographics.gestational_age_at_birth_unit:
             g.add((dNode, SP['gestationalAgeAtBirth'], self.valueAndUnit(demographics.gestational_age_at_birth_value,
-                                                                      demographics.gestational_age_at_birth_unit)))
+                                                                         demographics.gestational_age_at_birth_unit)))
 
         self.addStatement(dNode)
 
@@ -299,53 +301,62 @@ class PatientGraph(object):
             vitals_collection = Collection(g, vitals_list_node, [])
 
         for v in vitals:
-            vnode = URIRef(v.uri('vital_signs'))
-            g.add((vnode, RDF.type, SP['VitalSignSet']))
+            vNode = URIRef(v.uri('vital_sign_sets'))
+            g.add((vNode, RDF.type, SP['VitalSignSet']))
             if order_results:        
-                vitals_collection.append(vnode)
-            g.add((vnode, DCTERMS['date'], Literal(v.date)))
+                vitals_collection.append(vNode)
+            g.add((vNode, DCTERMS['date'], Literal(v.date)))
 
             enode = self.encounter(v.encounter)
             self.addStatement(enode)
-            g.add((vnode, SP['encounter'], enode))
-
-            bpNode = self.bloodPressure(v, 'bp')
-            if bpNode:
-                g.add((vnode, SP['bloodPressure'], bpNode))
-
-            bmiNode = self.vital(v, 'bmi')
-            if bmiNode:
-                g.add((vnode, SP['bodyMassIndex'], bmiNode))
-
-            hrNode = self.vital(v, 'heart_rate')
-            if hrNode:
-                g.add((vnode, SP['heartRate'], hrNode))
+            g.add((vNode, SP['encounter'], enode))
 
             hNode = self.vital(v, 'height')
             if hNode:
-                g.add((vnode, SP['height'], hNode))
-
-            osNode = self.vital(v, 'oxygen_saturation')
-            if osNode:
-                g.add((vnode, SP['oxygenSaturation'], osNode))
-                
-            rrNode = self.vital(v, 'respiratory_rate')
-            if rrNode:
-                g.add((vnode, SP['respiratoryRate'], rrNode))
-                
-            tNode = self.vital(v, 'temperature')
-            if tNode:
-                g.add((vnode, SP['temperature'], tNode))
+                g.add((vNode, SP['height'], hNode))
 
             wNode = self.vital(v, 'weight')
             if wNode:
-                g.add((vnode, SP['weight'], wNode))
-                
-            hcNode = self.vital(v, 'head_circ')
-            if hcNode:
-                g.add((hcNode, SP['headCircumference'], hcNode))
+                g.add((vNode, SP['weight'], wNode))
 
-            self.addStatement(vnode)
+            bmiNode = self.vital(v, 'bmi')
+            if bmiNode:
+                g.add((vNode, SP['bodyMassIndex'], bmiNode))
+
+            hcNode = self.vital(v, 'head_circumference')
+            if hcNode:
+                g.add((vNode, SP['headCircumference'], hcNode))
+
+            tNode = self.vital(v, 'temperature')
+            if tNode:
+                g.add((vNode, SP['temperature'], tNode))
+
+            osNode = self.vital(v, 'oxygen_saturation')
+            if osNode:
+                g.add((vNode, SP['oxygenSaturation'], osNode))
+
+            bpNode = self.bloodPressure(v, 'blood_pressure')
+            if bpNode:
+                g.add((vNode, SP['bloodPressure'], bpNode))
+
+            hrNode = self.vital(v, 'heart_rate')
+            if hrNode:
+                g.add((vNode, SP['heartRate'], hrNode))
+
+            rrNode = self.vital(v, 'respiratory_rate')
+            if rrNode:
+                g.add((vNode, SP['respiratoryRate'], rrNode))
+
+            bgNode = self.bloodGlucose(v, 'blood_glucose')
+            if bgNode:
+                g.add((vNode, COPHR['bloodGlucose'], bgNode))
+
+            cNode = self.cholesterol(v, 'cholesterol')
+            if cNode:
+                g.add((vNode, COPHR['cholesterol'], cNode))
+                
+
+            self.addStatement(vNode)
         
         return vitals_list_node
 
@@ -1067,7 +1078,43 @@ class PatientGraph(object):
             self.g.add((bpNode, SP['method'], self.newCodedValue(method)))
 
         return bpNode
-    
+
+    def bloodGlucose(self, obj, prefix):
+        bgNode = BNode()
+        self.g.add((bgNode, RDF.type, COPHR['bloodGlucose']))
+        
+        levelNode = self.vital(obj, "%s_level"%prefix)
+        if levelNode:
+            self.g.add((bgNode, COPHR['level'], levelNode))
+
+        context = self._getCodedValueFromField(obj, "%s_context"%prefix, [COPHR_CODE['blood-glucose-context']])
+        if context:
+            self.g.add((bgNode, COPHR['context'], self.newCodedValue(context)))
+
+        return bgNode
+
+    def cholesterol(self, obj, prefix):
+        cNode = BNode()
+        self.g.add((cNode, RDF.type, COPHR['cholesterol']))
+        
+        ldlNode = self.vital(obj, "%s_ldl"%prefix)
+        if ldlNode:
+            self.g.add((cNode, COPHR['ldl'], ldlNode))
+
+        hdlNode = self.vital(obj, "%s_hdl"%prefix)
+        if hdlNode:
+            self.g.add((cNode, COPHR['hdl'], hdlNode))
+
+        triNode = self.vital(obj, "%s_triglyceride"%prefix)
+        if triNode:
+            self.g.add((cNode, COPHR['triglyceride'], triNode))
+
+        totalNode = self.vital(obj, "%s_total"%prefix)
+        if totalNode:
+            self.g.add((cNode, COPHR['total'], totalNode))
+
+        return cNode
+
     ################################
     ### Low-level helper methods ###
     ################################

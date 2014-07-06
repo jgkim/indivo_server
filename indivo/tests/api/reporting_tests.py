@@ -66,11 +66,11 @@ class ReportingInternalTests(InternalTests):
         self.assertEquals(response.status_code, 200)
 
     def test_get_vital_signs(self):
-        url = '/records/%s/reports/vitalsigns/?group_by=weight_unit&aggregate_by=avg*weight_value'%(self.record.id)
+        url = '/records/%s/reports/VitalSigns/?group_by=weight_unit&aggregate_by=avg*weight_value'%(self.record.id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
-        url = '/records/%s/reports/vitalsigns/?aggregate_by=avg*weight_value'%(self.record.id)
+        url = '/records/%s/reports/VitalSigns/?aggregate_by=avg*weight_value'%(self.record.id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
 
@@ -136,7 +136,7 @@ class ReportingInternalTests(InternalTests):
         #      and there are only 2 of them; making meaningful queries difficult.
         
         # group_by, aggregate_by, date_range (json format)
-        url = '/records/%s/reports/vitalsigns/?group_by=weight_unit&aggregate_by=avg*weight_value&date_range=date*2005-03-10T00:00:00Z*'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?group_by=weight_unit&aggregate_by=avg*weight_value&date_range=date*2005-03-10T00:00:00Z*'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
@@ -148,7 +148,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEqual(response_json[0]['group'], 'kg')
 
         # group_by, aggregate_by, date_range (xml format)
-        url = '/records/%s/reports/vitalsigns/?group_by=weight_unit&aggregate_by=avg*weight_value&date_range=date*2005-03-10T00:00:00Z*&response_format=application/xml'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?group_by=weight_unit&aggregate_by=avg*weight_value&date_range=date*2005-03-10T00:00:00Z*&response_format=application/xml'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
@@ -160,7 +160,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEqual(reports[0].get('group'), 'kg')
 
         # string {field}, date_group, aggregate_by, order_by
-        url = '/records/%s/reports/vitalsigns/?date_group=date*month&aggregate_by=min*date&order_by=date'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?date_group=date*month&aggregate_by=min*date&order_by=date'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
@@ -175,7 +175,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEqual(response_json[1]['group'], '2010-05')
         
         # date {field}
-        url = '/records/%s/reports/vitalsigns/?date=2009-05-16T12:00:00Z'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?date=2009-05-16T12:00:00Z'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
@@ -184,7 +184,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEqual(response_json[0]['date'], '2009-05-16T12:00:00Z')
         
         # string {field}
-        url = '/records/%s/reports/vitalsigns/?weight_name_code_title=Body weight'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?weight_name_code_title=Body weight'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         response_json = json.loads(response.content)
@@ -193,7 +193,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEqual(response_json[1]['weight_name_code_title'], 'Body weight')
         
         # number {field}
-        url = '/records/%s/reports/vitalsigns/?weight_value=70.8'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?weight_value=70.8'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
         
@@ -203,7 +203,7 @@ class ReportingInternalTests(InternalTests):
         self.assertEquals(float(response_json[0]['weight_value']), 70.8)
         
         # number {field} with multiple values
-        url = '/records/%s/reports/vitalsigns/?weight_value=70.8|80.8'%(record_id)
+        url = '/records/%s/reports/VitalSigns/?weight_value=70.8|80.8'%(record_id)
         response = self.client.get(url)
         self.assertEquals(response.status_code, 200)
 

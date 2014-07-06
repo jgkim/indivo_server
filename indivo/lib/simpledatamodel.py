@@ -22,7 +22,7 @@ from lxml import etree
 from indivo.lib import iso8601
 from indivo.fields import CodedValueField, CodeField, ValueAndUnitField, AddressField
 from indivo.fields import NameField, TelephoneField, PharmacyField, ProviderField
-from indivo.fields import OrganizationField, BloodPressureField, VitalSignField
+from indivo.fields import OrganizationField, VitalSignField, BloodPressureField, BloodGlucoseField, CholesterolField
 from indivo.fields import QuantitativeResultField, ValueRangeField
 
 SDM_TYPES = {
@@ -40,6 +40,8 @@ SDM_TYPES = {
     'Provider': (ProviderField, {}),
     'VitalSign': (VitalSignField, {}),
     'BloodPressure': (BloodPressureField, {}),
+    'BloodGlucose': (BloodGlucoseField, {}),
+    'Cholesterol': (CholesterolField, {}),
     'QuantitativeResult': (QuantitativeResultField, {}),
     'ValueRange': (ValueRangeField, {}),
 }

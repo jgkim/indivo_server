@@ -3,18 +3,22 @@
     "date": "Date",
     "encounter": {
         "__modelname__": "Encounter",
-        "startDate": "Date",
-        "endDate": "Date",
+        "encounter_type": "CodedValue",
+        "start_date": "Date",
+        "end_date": "Date",
 	    "facility": "Organization",
 	    "provider": "Provider",
-        "type": "CodedValue"
+        "notes": "String"
         },
-    "bp": "BloodPressure",
-    "bmi": "VitalSign",
-    "heart_rate": "VitalSign",
     "height": "VitalSign",
-    "oxygen_saturation": "VitalSign",
-    "respiratory_rate": "VitalSign",
+    "weight": "VitalSign",
+    "bmi": "VitalSign",
+    "head_circumference": "VitalSign",
     "temperature": "VitalSign",
-    "weight": "VitalSign"
+    "oxygen_saturation": "VitalSign",
+    "blood_pressure": "BloodPressure",
+    "heart_rate": "VitalSign",
+    "respiratory_rate": "VitalSign",
+    "blood_glucose": "BloodGlucose",
+    "cholesterol": "Cholesterol"
 }
