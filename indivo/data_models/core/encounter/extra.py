@@ -33,10 +33,10 @@ class EncounterSerializers(DataModelSerializers):
         root = serializers.serialize("indivo_xml", queryset)
         for model_etree in root.findall('Model'):
             model_name = model_etree.get('name')
-            field_etrees = []
-            type_fields = []
-
             if model_name == 'Encounter':
+                field_etrees = []
+                type_fields = []
+
                 for field_etree in model_etree.findall('Field'):
                     field_name = field_etree.get('name')
                     if field_name and field_name.startswith('encounter_type_'):
