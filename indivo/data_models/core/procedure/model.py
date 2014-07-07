@@ -5,8 +5,7 @@ from indivo.models import Fact
 
 class Procedure(Fact):
     date = models.DateTimeField(null=True)
-    notes = models.TextField(null=True)
     name = CodedValueField()
     status = CodedValueField(null=True)
     provider = ProviderField(null=True)
-    
+    notes = models.CharField(max_length=600, null=True)

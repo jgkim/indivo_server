@@ -6,7 +6,6 @@ from indivo.validators import ExactValueValidator, NonNullValidator
 SNOMED_URI = 'http://purl.bioontology.org/ontology/SNOMEDCT/'
 
 class ProcedureSerializers(DataModelSerializers):
-
     def to_rdf(query, record=None, carenet=None):
         if not record:
             record = carenet.record
@@ -20,8 +19,9 @@ class ProcedureOptions(DataModelOptions):
     model_class_name = 'Procedure'
     serializers = ProcedureSerializers
     field_validators = {
+        'date': [NonNullValidator()],
         'name_title': [NonNullValidator()],
         'name_code_system': [ExactValueValidator(SNOMED_URI)],
         'name_code_identifier': [NonNullValidator()],
         'name_code_title': [NonNullValidator()],
-        }
+    }
