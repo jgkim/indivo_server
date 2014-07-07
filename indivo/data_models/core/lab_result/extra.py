@@ -32,12 +32,13 @@ class LabResultOptions(DataModelOptions):
     model_class_name = 'LabResult'
     serializers = LabResultSerializers
     field_validators = {
-        'abnormal_interpretation_code_system': [ExactValueValidator(LAB_INTERP_URI, nullable=True)],
-        'abnormal_interpretation_code_identifier': [ValueInSetValidator(VALID_INTERPS, nullable=True)],
+        'date': [NonNullValidator()],
         'name_title': [NonNullValidator()],
         'name_code_system': [ExactValueValidator(LOINC_URI)],
         'name_code_identifier': [NonNullValidator()],
         'name_code_title': [NonNullValidator()],
         'status_code_system': [ExactValueValidator(LAB_STATUS_URI, nullable=True)],
         'status_code_identifier': [ValueInSetValidator(VALID_STATUSES, nullable=True)],
+        'abnormal_interpretation_code_system': [ExactValueValidator(LAB_INTERP_URI, nullable=True)],
+        'abnormal_interpretation_code_identifier': [ValueInSetValidator(VALID_INTERPS, nullable=True)],
         }

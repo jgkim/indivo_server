@@ -4,4 +4,3 @@ from indivo.fields import CodedValueField
 
 class LabPanel(Fact):
     name = CodedValueField()
-    
