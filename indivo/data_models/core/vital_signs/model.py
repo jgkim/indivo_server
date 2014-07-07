@@ -4,7 +4,7 @@ from indivo.fields import VitalSignField, BloodPressureField, BloodGlucoseField,
 
 class VitalSigns(Fact):
     date = models.DateTimeField(null=True)
-    encounter = models.ForeignKey('Encounter', null=True)
+    encounter = models.ForeignKey('Encounter', null=True, related_name='vital_signs')
     height = VitalSignField()
     weight = VitalSignField()
     bmi = VitalSignField()

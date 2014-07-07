@@ -113,7 +113,7 @@
     <Field name="cholesterol_ldl_name_code_system">http://purl.bioontology.org/ontology/LNC/</Field>
     <Field name="cholesterol_ldl_name_code_identifier">2089-1</Field>
     <Field name="cholesterol_hdl_unit">mg/dL</Field>
-    <Field name="cholesterol_hdl_value">58"</Field>
+    <Field name="cholesterol_hdl_value">58</Field>
     <Field name="cholesterol_hdl_name_title">Cholesterol in HDL</Field>
     <Field name="cholesterol_hdl_name_code_title">Cholesterol in HDL</Field>
     <Field name="cholesterol_hdl_name_code_system">http://purl.bioontology.org/ontology/LNC/</Field>
