@@ -8,3 +8,4 @@ class ClinicalNote(Fact):
     format = models.CharField(max_length=255, null=True)
     value = models.CharField(max_length=255, null=True)
     provider = ProviderField()
+    notes = models.CharField(max_length=600, null=True)
