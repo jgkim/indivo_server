@@ -714,7 +714,7 @@ class PatientGraph(object):
         # required
         drug_name = self._getCodedValueFromField(m, 'name', [SPCODE["RxNorm_Semantic"]])
         g.add((mNode, SP['drugName'], self.newCodedValue(drug_name)))
-        g.add((mNode, SP['startDate'], Literal(m.startDate)))
+        g.add((mNode, SP['startDate'], Literal(m.start_date)))
         g.add((mNode, SP['instructions'], Literal(m.instructions or '')))
         
         # optional 
@@ -722,8 +722,8 @@ class PatientGraph(object):
             g.add((mNode, SP['quantity'], self.valueAndUnit(m.quantity_value, m.quantity_unit)))
         if m.frequency_value and m.frequency_unit:
             g.add((mNode, SP['frequency'], self.valueAndUnit(m.frequency_value, m.frequency_unit)))
-        if m.endDate:
-            g.add((mNode, SP['endDate'], Literal(m.endDate)))
+        if m.end_date:
+            g.add((mNode, SP['endDate'], Literal(m.end_date)))
         
         provenance = self._getCodeFromField(m, 'provenance')
         if provenance:    

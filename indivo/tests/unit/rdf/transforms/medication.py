@@ -20,7 +20,7 @@ class MedicationTransformUnitTests(InternalTests):
         self.assertEqual(len(facts), 1)
 
         comparison_med = Medication(
-            endDate='2013-09-18',
+            end_date='2013-09-18',
             frequency_unit='/d',
             frequency_value='2',
             instructions='TAKE 1 TABLET TWICE DAILY WITH MEALS',
@@ -36,7 +36,8 @@ class MedicationTransformUnitTests(InternalTests):
             provenance_title='ProvenanceTitle',
             quantity_unit='{tablet}',
             quantity_value='2',
-            startDate='2013-02-18',
+            start_date='2013-02-18',
+            notes='',
             )
         comparison_med.save()
 

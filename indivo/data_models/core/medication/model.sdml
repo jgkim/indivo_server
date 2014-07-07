@@ -1,12 +1,13 @@
 {
     "__modelname__": "Medication",
-    "drugName": "CodedValue",
-    "endDate": "Date",
+    "name": "CodedValue",
+    "start_date": "Date",
+    "end_date": "Date",
     "frequency": "ValueAndUnit",
-    "instructions": "String",
-    "provenance": "Code",
     "quantity": "ValueAndUnit",
-    "startDate": "Date",
+    "instructions": "String",
+    "notes": "String",
+    "provenance": "Code",
     "fulfillments": [{
         "__modelname__": "Fill",
         "date": "Date",

@@ -4,12 +4,13 @@ from indivo.fields import CodedValueField, CodeField, ValueAndUnitField, Pharmac
 
 class Medication(Fact):
     name = CodedValueField()
-    endDate = models.DateField(null=True)
+    start_date = models.DateField(null=True)
+    end_date = models.DateField(null=True)
     frequency = ValueAndUnitField()
-    instructions = models.CharField(max_length=255, null=True)
-    provenance = CodeField()
     quantity = ValueAndUnitField()
-    startDate = models.DateField(null=True)
+    instructions = models.CharField(max_length=255, null=True)
+    notes = models.CharField(max_length=600, null=True)
+    provenance = CodeField()
 
 class Fill(Fact):
     date = models.DateTimeField(null=True)

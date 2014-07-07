@@ -14,11 +14,11 @@ class MedicationTransform(BaseRDFTransform):
 
 
     param_map = {
-        'endDate': 'endDate',
+        'endDate': 'end_date',
         # 'fulfillment': 'fulfillments',                    # handled below as a related Fact
         'instructions': 'instructions',
         # 'provenance': 'provenance',                       # not currently stored in Indivo
-        'startDate': 'startDate',
+        'startDate': 'start_date',
     }
 
     def to_facts(self, rdf_graph):
