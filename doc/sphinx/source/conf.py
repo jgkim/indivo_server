@@ -12,6 +12,7 @@
 # serve to show the default.
 
 import sys, os
+import sphinx_rtd_theme
 
 # If extensions (or modules to document with autodoc) are in another directory,
 # add these directories to sys.path here. If the directory is relative to the
@@ -114,7 +115,8 @@ modindex_common_prefix = ['indivo.views.', 'views.']
 
 # The theme to use for HTML and HTML Help pages.  See the documentation for
 # a list of builtin themes.
-html_theme = 'default'
+#html_theme = 'default'
+html_theme = 'sphinx_rtd_theme'
 
 # Theme options are theme-specific and customize the look and feel of a theme
 # further.  For a list of options available for each theme, see the
@@ -122,27 +124,28 @@ html_theme = 'default'
 html_theme_options = {
 #    'rightsidebar':True,
 #    'externalrefs': False,
-    'footerbgcolor':'#1E3467',
-    'footertextcolor':'#9EADCF',
-    'sidebarbgcolor':'#294FAB',
-    'sidebartextcolor':'#9EADCF',
+#    'footerbgcolor':'#1E3467',
+#    'footertextcolor':'#9EADCF',
+#    'sidebarbgcolor':'#294FAB',
+#    'sidebartextcolor':'#9EADCF',
 #    'sidebarlinkcolor':'#1E3467',
-    'sidebarlinkcolor':'#DDDDEE',
-    'relbarbgcolor':'#1E3467',
-    'relbartextcolor':'#9EADCF',
-    'relbarlinkcolor':'#8CA0CF',
-    'bgcolor': '#FEFCF7',
+#    'sidebarlinkcolor':'#DDDDEE',
+#    'relbarbgcolor':'#1E3467',
+#    'relbartextcolor':'#9EADCF',
+#    'relbarlinkcolor':'#8CA0CF',
+#    'bgcolor': '#FEFCF7',
 #    'textcolor':'black',
 #    'linkcolor':'#1E3467',
 #    'visitedlinkcolor':'#596E9D',
-    'headbgcolor':'#BFC4CE',
-    'headtextcolor':'#1E3467',
-    'headlinkcolor':'#1E3467',
+#    'headbgcolor':'#BFC4CE',
+#    'headtextcolor':'#1E3467',
+#    'headlinkcolor':'#1E3467',
     }
 
 # Add any paths that contain custom themes here, relative to this directory.
 #html_theme_path = []
-html_theme_path = [".theme"]
+#html_theme_path = [".theme"]
+html_theme_path = [sphinx_rtd_theme.get_html_theme_path()]
 
 # The name for this set of Sphinx documents.  If None, it defaults to
 html_title = "%s v%s documentation"%(project, version)
