@@ -1,5 +1,5 @@
 Indivo Data Model: SocialHistory
-============================
+================================
 
 Model Definition
 ----------------

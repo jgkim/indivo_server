@@ -9,8 +9,8 @@ Grab the Code
 
 * Indivo X Server
 
-  *http://github.com/chb/indivo_server/
-  *http://cloud.github.com/downloads/chb/indivo_server/indivo_server-v1.0.0.tar.gz
+  * http://github.com/chb/indivo_server/
+  * http://cloud.github.com/downloads/chb/indivo_server/indivo_server-v1.0.0.tar.gz
   
 * Indivo X UI Server + bundled apps (problems, meds, labs)
 

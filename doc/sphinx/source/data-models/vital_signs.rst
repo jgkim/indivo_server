@@ -6,12 +6,12 @@ Model Definition
 
 As :ref:`SDML <sdml>`:
 
-.. include:: /../../../indivo/data_models/core/vitals/model.sdml
+.. include:: /../../../indivo/data_models/core/vital_signs/model.sdml
    :literal:
 
 As a Django Model Class:
 
-.. include:: /../../../indivo/data_models/core/vitals/model.py
+.. include:: /../../../indivo/data_models/core/vital_signs/model.py
    :literal:
 
 Examples
@@ -19,15 +19,15 @@ Examples
 
 As :ref:`SDMJ <sdmj>`:
 
-.. include:: /../../../indivo/data_models/core/vitals/example.sdmj
+.. include:: /../../../indivo/data_models/core/vital_signs/example.sdmj
    :literal:
 
 As :ref:`SDMX <sdmx>`:
 
-.. include:: /../../../indivo/data_models/core/vitals/example.sdmx
+.. include:: /../../../indivo/data_models/core/vital_signs/example.sdmx
    :literal:
 
 As a :term:`Fact object <fact>`:
 
-.. include:: /../../../indivo/data_models/core/vitals/example.py
+.. include:: /../../../indivo/data_models/core/vital_signs/example.py
    :literal:
