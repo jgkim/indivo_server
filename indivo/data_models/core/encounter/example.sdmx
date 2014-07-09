@@ -19,5 +19,13 @@
 	    <Field name="encounter_type_code_title">Ambulatory encounter</Field>
 	    <Field name="encounter_type_code_system">http://smartplatforms.org/terms/codes/EncounterType#</Field>
 	    <Field name="encounter_type_code_identifier">ambulatory</Field>
+	    <Field name="specialty_title">Adolescent Medicine - Pediatrics</Field>
+	    <Field name="specialty_code_title">Adolescent Medicine - Pediatrics</Field>
+	    <Field name="specialty_code_system">http://code.cophr.org/medical-specialty/</Field>
+	    <Field name="specialty_code_identifier">ADL</Field>
+	    <Field name="status_title">Complete</Field>
+	    <Field name="status_code_title">Complete</Field>
+	    <Field name="status_code_system">http://code.cophr.org/appointment-status/</Field>
+	    <Field name="status_code_identifier">Cmp</Field>
 	</Model>
 </Models>

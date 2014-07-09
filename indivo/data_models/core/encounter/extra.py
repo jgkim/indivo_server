@@ -9,7 +9,15 @@ from indivo.serializers import DataModelSerializers
 from indivo.validators import ValueInSetValidator, ExactValueValidator, NonNullValidator
 from indivo.serializers.json import IndivoJSONEncoder
 
-ENC_TYPE_URI="http://smartplatforms.org/terms/codes/EncounterType#"
+SPECIALTY_URI="http://code.cophr.org/medical-specialty/"
+
+ENC_TYPE_URIS = [
+    "http://smartplatforms.org/terms/codes/EncounterType#",
+    "http://code.cophr.org/encounter-type/",
+]
+
+APNTMT_STATUS_URI="http://code.cophr.org/appointment-status/"
+
 ENC_TYPES = [
     'home',
     'emergency',
@@ -17,6 +25,15 @@ ENC_TYPES = [
     'inpatient',
     'field',
     'virtual',
+    'daySurgery',
+]
+
+APNTMT_STATUSES = [
+    'Abs', # Missed
+    'Can', # Cancelled
+    'Cmp', # Completed
+    'Sch', # Scheduled
+    'Tbs', # To be scheduled
 ]
 
 class EncounterSerializers(DataModelSerializers):
@@ -101,9 +118,12 @@ class EncounterOptions(DataModelOptions):
     serializers = EncounterSerializers
     field_validators = {
         'encounter_type_title': [NonNullValidator()],
-        'encounter_type_code_system': [ExactValueValidator(ENC_TYPE_URI)],
+        'encounter_type_code_system': [ValueInSetValidator(ENC_TYPE_URIS)],
         'encounter_type_code_identifier': [ValueInSetValidator(ENC_TYPES)],
         'encounter_type_code_title': [NonNullValidator()],
         'start_date': [NonNullValidator()],
+        'specialty_code_system': [ExactValueValidator(SPECIALTY_URI, nullable=True)],
+        'status_code_system': [ExactValueValidator(APNTMT_STATUS_URI, nullable=True)],
+        'status_code_identifier': [ValueInSetValidator(APNTMT_STATUSES, nullable=True)],
         }
 
