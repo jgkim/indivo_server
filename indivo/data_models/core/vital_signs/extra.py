@@ -12,7 +12,7 @@ from indivo.serializers.json import IndivoJSONEncoder
 LOINC_URI="http://purl.bioontology.org/ontology/LNC/"
 SNOMED_URI="http://purl.bioontology.org/ontology/SNOMEDCT/"
 BP_METHOD_URI="http://smartplatforms.org/terms/codes/BloodPressureMethod#"
-BG_CONTEXT_URI="https://code.cophr.org/blood-glucose-context/"
+BG_CONTEXT_URI="https://vocab.cophr.org/blood-glucose-context/"
 
 BP_POSITION_IDS = [
     '40199007', # Supine

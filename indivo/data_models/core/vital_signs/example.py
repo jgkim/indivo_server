@@ -129,7 +129,7 @@ vitals_fact = VitalSigns(
     blood_glucose_level_name_code_identifier="2339-0"
     blood_glucose_context_title="After meal"
     blood_glucose_context_code_title="After meal"
-    blood_glucose_context_code_system="https://code.cophr.org/blood-glucose-context/"
+    blood_glucose_context_code_system="https://vocab.cophr.org/blood-glucose-context/"
     blood_glucose_context_code_identifier="AfterMeal"
 
     # Cholesterol
