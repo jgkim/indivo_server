@@ -1,0 +1,4 @@
+invasive	Invasive	침습적 방법
+palpation	Palpation	촉진
+machine	Machine	기계
+auscultation	Auscultation	청진

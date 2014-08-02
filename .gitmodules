@@ -1,9 +1,6 @@
 [submodule "oauth"]
 	path = oauth
 	url = git://github.com/chb/oauth_py.git
-[submodule "codingsystems"]
-	path = codingsystems
-	url = git://github.com/chb/indivo_codingsystems.git		
 [submodule "sample_data"]
 	path = sample_data
 	url = git://github.com/chb/indivo_sample_data.git

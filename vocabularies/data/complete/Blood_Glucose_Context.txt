@@ -1,0 +1,14 @@
+afterBlackfast	After breakfast	아침 식사 후
+afterDinner	After dinner	저녁 식사 후
+afterExercise	After exercise	운동 후
+afterLunch	After lunch	점심 식사 후
+afterMeal	After meal	식사 후
+beforeBedtime	Before bedtime	취침 전
+beforeBreakfast	Before breakfast	아침 식사 전
+beforeDinner	Before dinner	저녁 식사 전
+beforeExercise	Before exercise	운동 전
+beforeLunch	Before lunch	점심 식사 전
+beforeMeal	Before meal	식사 전
+fasting	Fasting	단식 중
+ignore	Ignore	무시
+nonFasting	Non-fasting	단식 중이 아님

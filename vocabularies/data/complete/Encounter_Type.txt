@@ -1,0 +1,7 @@
+home	Home encounter	가정 진료
+emergency	Emergency encounter	응급실 진료
+ambulatory	Ambulatory encounter	외래 진료
+inpatient	Inpatient encounter	입원 진료
+field	Field encounter	현장 진료
+virtual	Virtual encounter	가상 진료
+daySurgery	Day Surgery	당일 수술

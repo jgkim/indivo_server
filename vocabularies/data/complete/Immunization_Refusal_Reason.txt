@@ -1,0 +1,13 @@
+vaccineUnavailable	Vaccine unavailable at visit	방문시 백신이 가용하지 않음
+patientUndergoingDesensitizationTherapy	Patient undergoing desensitization therapy	환자가 민감 소실 요법을 받는 중
+notIndicatedPerGuidelines	Not indicated per guidelines	가이드라인에 따라 바람직하지 않음
+recentChemoOrRadiaton	Recent chemotherapy/radiaton	최근 화학 및 방사선 요법
+allergy	Allergy to vaccine/vaccine components, or allergy to eggs	백신 또는 백신의 구성요소에 대한 알레르기 또는 달걀 알레르기
+providerDeferred	Provider deferred	의료진이 연기함
+documentedImmunityOrPreviousDisease	Documented immunity or previous disease	기록된 면역성이나 기존 질병
+previouslyVaccinated	Previously vaccinated	이전에 접종함
+contraindicated	Contraindicated	금기됨
+patientOrParentRefused	Patient/parent refused	환자 또는 부모가 거부함
+comfortMeasuresOnly	Comfort Measures Only	경감 요법
+possiblePriorAllergyOrReaction	Possible allergy/reaction to prior dose	기존 투약에 대한 알레르기 또는 반응의 가능성
+recentOrganOrStemCellTransplant	Recent organ/stem cell transplant	최근 장기 및 줄기세포 이식

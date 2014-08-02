@@ -14,9 +14,9 @@ import os
 from django.core import management
 os.environ['DJANGO_SETTINGS_MODULE'] = 'indivo.settings'
 sys.path.insert(0, os.path.abspath(os.path.dirname(__file__) + '/../'))
-from django.db import connection, DatabaseError, IntegrityError
+from django.db import connection, connections, DatabaseError, IntegrityError
 
-from load_codingsystems import load_codingsystems
+from load_vocabularies import load_vocabularies
 from utils.importer import import_data, AppSyncer
 
 from optparse import OptionParser
@@ -33,7 +33,7 @@ def isvalid(s):
     return type(s) == str and len(s) > 0
 
 if DB_NAME == 'mysql':
-    import _mysql_exceptions as DB_EXCEPTION_MODULE
+    from _mysql_exceptions import OperationalError
 
     params = []
     if (not isvalid(CONN_DICT['NAME'])):
@@ -52,8 +52,9 @@ if DB_NAME == 'mysql':
 
     CREATE_DB_CMD = 'mysqladmin %s create %s' % (params, CONN_DICT['NAME'])
     DROP_DB_CMD = 'mysqladmin %s drop %s' % (params, CONN_DICT['NAME'])
+
 elif DB_NAME == 'postgresql_psycopg2':
-    import psycopg2 as DB_EXCEPTION_MODULE
+    from psycopg2 import OperationalError
     
     params = []
     if (not isvalid(CONN_DICT['NAME'])):
@@ -87,7 +88,7 @@ def drop_db():
 # Parse commandline Arguments
 usage = ''' %prog [options]
 
-Reset the Indivo database, optionally loading initial data and codingsystems data. Initial data should
+Reset the Indivo database, optionally loading initial data and vocabularies data. Initial data should
 be placed in indivo_server/utils/indivo_data.xml.
 
 Some of the commands (i.e. dropping and creating the database)
@@ -109,11 +110,11 @@ parser.add_option("--no-data",
                   action="store_false", dest="load_data",
                   help="Don't load initial data from indivo_data.xml.")
 parser.add_option("-c",
-                  action="store_true", dest="load_codingsystems", default=False,
-                  help="Load codingsystems data, if available.")
-parser.add_option("--no-codingsystems",
-                  action="store_false", dest="load_codingsystems",
-                  help="Don't load codingsystems data (default behavior).")
+                  action="store_true", dest="load_vocabularies", default=False,
+                  help="Load vocabularies data, if available.")
+parser.add_option("--no-vocabularies",
+                  action="store_false", dest="load_vocabularies",
+                  help="Don't load vocabularies data (default behavior).")
 parser.add_option("--force-drop",
                   action="store_true", dest="force_drop", default=False,
                   help="Force a drop and recreate of the database (useful if flushing the database fails).")
@@ -146,12 +147,14 @@ else:
             try:
                 print "Flushing the Database of existing data..."
                 management.call_command('flush', verbosity=0, interactive=False)
+                # TODO: Support for multiple databases
+                management.call_command('flush', database='vocabularies', verbosity=0, interactive=False)
                 management.call_command('migrate', fake=True, verbosity=0)
                 print "Database Flushed."
 
             # Couldn't flush. Either the database doesn't exist, or it is corrupted.
             # Try dropping and recreating, below
-            except (DB_EXCEPTION_MODULE.OperationalError, DatabaseError, IntegrityError) as e:
+            except (OperationalError, DatabaseError, IntegrityError) as e:
                 force_drop = True
 
             # Unknown exception. For now, just treat same as other exceptions
@@ -164,6 +167,27 @@ else:
             print "Database nonexistent or corrupted, or Database drop requeseted. Attempting to drop database..."
             try:
                 drop_db()
+
+                # TODO: Support for multiple databases
+                connections['vocabularies'].close()
+                CONN_DICT = connections['vocabularies'].settings_dict
+                params = []
+                if (not isvalid(CONN_DICT['NAME'])):
+                    raise ValueError("Database setting NAME must be a valid non-empty string")
+                if (isvalid(CONN_DICT['USER'])):
+                    params.append('-u %s' % CONN_DICT['USER'])
+                else:
+                    raise ValueError("Database setting USER must be a valid non-empty string")
+                if (isvalid(CONN_DICT['PASSWORD'])):
+                    params.append('-p %s' % CONN_DICT['PASSWORD'])
+                else:
+                    raise ValueError("Database setting PASSWORD must be a valid non-empty string")
+                if (isvalid(CONN_DICT['HOST'])):
+                    params.append('--host %s' % CONN_DICT['HOST'])
+                if (isvalid(CONN_DICT['PORT'])):
+                    params.append('--port %s' % CONN_DICT['PORT'])
+                params = " ".join(params)
+                subprocess.check_call('mongo %s --eval "db.dropDatabase()" %s' % (params, CONN_DICT['NAME']), shell=True, stdout=open('/dev/null', 'w'))
             except subprocess.CalledProcessError:
                 print "Couldn't drop database. Probably because it didn't exist."
 
@@ -178,16 +202,18 @@ else:
             # Sync the Database
             print "Syncing and Migrating the database..."
             management.call_command('syncdb', verbosity=0)
+            # TODO: Support for multiple databases
+            management.call_command('syncdb', database='vocabularies', verbosity=0)
 
             # Migrate the Database
             management.call_command('migrate', verbosity=0)
             print "Database Synced."
 
-    # Load codingsystems
-    if options.load_codingsystems:
-        print "LOADING CODINGSYSTEMS DATA..."
+    # Load vocabularies
+    if options.load_vocabularies:
+        print "LOADING VOCABULARIES DATA..."
         try:
-            load_codingsystems()
+            load_vocabularies()
             print "LOADED."
         except Exception as e:
             print str(e)

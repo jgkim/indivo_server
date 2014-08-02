@@ -1,0 +1,4 @@
+61396006	Left thigh | Structure of left thigh (body structure)	Structure of left thigh	왼쪽 허벅지
+368209003	Right upper arm | Right arm | Right upper arm structure (body structure)	Right upper arm structure	오른쪽 팔
+11207009	Right thigh | Structure of right thigh (body structure)	Structure of right thigh	오른쪽 허벅지
+368208006	Left arm | Left upper arm | Left upper arm structure (body structure)	Left upper arm structure	왼쪽 팔

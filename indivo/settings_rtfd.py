@@ -42,11 +42,14 @@ SAMPLE_DATA_DIR = APP_HOME + '/sample_data'
 SITE_URL_PREFIX = "http://localhost:8000"
 
 # Description to show in SMART manifest call
-SITE_DESCRIPTION = "Indivo Server"
+SITE_DESCRIPTION = "CoPHR Storage"
 
 # URL prefix for the UI server
 # (usually port 80 on the same machine)
 UI_SERVER_URL = 'http://localhost'
+
+# URL prefix for the vocabulary server
+VOCAB_SERVER_URL = SITE_URL_PREFIX + '/vocabularies'
 
 # Storage Settings
 DATABASES = {
@@ -58,6 +61,14 @@ DATABASES = {
         'HOST':'', # Set to empty string for localhost.
         'PORT':'', # Set to empty string for default.
         },
+    'vocabularies':{
+        'ENGINE':'django_mongodb_engine',
+        'NAME':'cophr', # Required to be non-empty string
+        'USER':'', # Required to be non-empty string
+        'PASSWORD':'',
+        'HOST':'', # Set to empty string for localhost.
+        'PORT':'', # Set to empty string for default.
+    },
 }
 
 # Absolute path to the directory that holds media.
@@ -159,7 +170,7 @@ LOGGING = {
 #############################
 
 # excluse a URL pattern from access control
-INDIVO_ACCESS_CONTROL_EXCEPTION = "^/codes/"
+INDIVO_ACCESS_CONTROL_EXCEPTION = "^/(codes|vocabularies)/"
 
 MANAGERS = ADMINS
 
@@ -229,10 +240,16 @@ INSTALLED_APPS = (
     'django.contrib.sites',
     'django.contrib.staticfiles',
     'indivo',
-    'codingsystems',
+    'vocabularies',
     # for migrations
     'south',
 )
+
+DATABASE_ROUTERS = ['vocabularies.db_routers.VocabularyRouter']
+
+SOUTH_MIGRATION_MODULES = {
+    'vocabularies': 'ignore',
+}
 
 # cookie
 SESSION_COOKIE_NAME = "indivo_server_sessionid"

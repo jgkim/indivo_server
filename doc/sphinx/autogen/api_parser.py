@@ -739,8 +739,8 @@ class Call(object):
                                     vfn)
             except AttributeError:
                 try:
-                    # Is it a codingsystems view?
-                    view_func = getattr(__import__('codingsystems.views', 
+                    # Is it a vocabularies view?
+                    view_func = getattr(__import__('vocabularies.views', 
                                                    fromlist=[vfn]), 
                                         vfn)
                 except AttributeError:

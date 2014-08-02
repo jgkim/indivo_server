@@ -1,0 +1,5 @@
+414285001	Food allergy	Food allergy (disorder)	음식물 알레르기	음식알레르기
+426232007	Environmental allergy	Environmental allergy (disorder)	환경 알레르기	
+416098002	Drug allergy	Drug allergy (disorder) | Allergy to drug | Medication allergy | Medicine allergy	약물 알레르기	약물특이체질
+59037007	Drug intolerance	"Drug intolerance (disorder) | Drug intolerance, NOS"	약물 불내성	
+235719002	Food intolerance	Malabsorption due to food intolerance | Food intolerance (disorder)	음식물 불내성	

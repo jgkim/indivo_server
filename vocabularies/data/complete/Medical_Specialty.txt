@@ -1,0 +1,161 @@
+A	Allergy	알레르기
+ADL	Adolescent Medicine - Pediatrics	청소년 의학 - 소아과
+ADM	Addiction Medicine	중독 의학
+ADP	Addiction Psychiatry	중독 정신 의학
+AI	Allergy and Immunology	알레르기 및 면역학
+ALI	Allergy and Immunology/Clinical and Lab Immunology	알레르기 및 면역학/임상 및 실험 면역학
+AM	Aerospace Medicine	항공우주 의학
+AMF	Adolescent Medicine	청소년 의학
+AMI	Adolescent Medicine - Internal Medicine	청소년 의학 - 내과
+AN	Anesthesiology	마취학
+APM	Pain Management	통증 관리
+AR	Abdominal Radiology	복부 영상 의학과
+AS	Abdominal Surgery	복부 외과
+ATP	Anatomic Pathology	해부 병리학
+BBK	Blood Banking/Transfusion Medicine	혈액 은행/수혈 의학
+CBG	Clinical Biochemical Genetics	임상 생화학 유전학
+CCA	Critical Care Medicine - Anesthesiology	중환자 의학 - 마취학
+CCG	Clinical Cytogenetics	임상 세포 유전학
+CCM	Critical Care Medicine - Internal Medicine	중환자 의학 - 내과
+CCP	Pediatric Critical Care Medicine	소아 중환자 의학
+CD	Cardiovascular Diseases	심혈관 질환
+CFS	Craniofacial Surgery	두개 안면 외과
+CG	Clinical Genetics	임상 유전학
+CHN	Child Neurology	소아 신경학
+CHP	Child and Adolescent Psychiatry	소아 청소년 정신 의학
+CLP	Clinical Pathology	임상 병리학
+CMG	Clinical Molecular Genetics	임상 분자 유전학
+CN	Clinical Neurophysiology	임상 신경 생리학
+CRS	Colon and Rectal Surgery	결장 직장 외과
+CS	Cosmetic Surgery	미용 성형 외과
+CTR	Cardiothoracic Radiology	심흉부 영상 의학과
+D	Dermatology	피부과
+DBP	Developmental-Behavioral Pediatrics	발달 행동 소아 의학
+DDL	Clinical and Lab Dermatological Immunology	임상 실험 피부 면역학
+DIA	Diabetes	당뇨병
+DMP	Dermatopathology	피부 병리학
+DR	Diagnostic Radiology	진단 영상 의학과
+DS	Dermatologic Surgery	피부 외과
+DEN	Dentistry	치과
+EM	Emergency Medicine	응급 의학
+END	Endocrinology, Diabetes and Metabolism	내분비학, 당뇨 및 신진대사
+EP	Epidemiology	전염병학
+ETX	Medical Toxicology - Emergency Medicine	의학 독성학 - 응급 의학
+FOP	Forensic Pathology	법의 병리학
+FP	Family Practice	가정 의학
+FPG	Geriatric Medicine - Family Practice	노인 의학 - 가정 의학
+FPS	Facial Plastic Surgery	안면 성형 외과
+GE	Gastroenterology	소화기 내과
+GO	Gynecological Oncology	부인과 종양학
+GP	General Practice	일반 진료
+GPM	General Preventive Medicine	일반 예방 의학
+GS	General Surgery	일반 외과
+GYN	Gynecology	부인과
+HEM	Hematology-Internal Medicine	혈액학 - 내과
+HEP	Hepatology	혈액학
+HMP	Hematology-Pathology	혈액학 - 병리학
+HNS	Head and Neck Surgery	두경부 외과
+HO	Hematology/Oncology	혈액학/종양학
+HOS	Hospitalist	입원 환자 전문의
+HS	Hand Surgery	수부 외과
+IC	Interventional Cardiology	중재 심장학
+ICE	Cardiac Electrophysiology	심장 전기 생리학
+ID	Infectious Diseases	전염병
+IG	Immunology	면역학
+ILI	Clinical and Lab Immunology - Internal Medicine	임상 실험 면역학 - 내과
+IM	Internal Medicine	내과
+IMG	Geriatric Medicine - Internal Medicine	노인 의학 - 내과
+LM	Legal Medicine	법의학
+MDM	Medical Management	의료 관리
+MFM	Maternal and Fetal Medicine	모체 태아 의학
+MG	Medical Genetics	의학 유전학
+MGG	Molecular Genetic Pathology (Medical Genetics)	분자 유전 병리(의학 유전학)
+MGP	Molecular Genetic Pathology (Pathology)	분아 유전 병리(병리학)
+MM	Medical Microbiology	의학 미생물학
+MPD	Internal Medicine/Pediatrics	내과/소아과
+MSR	Musculoskeletal Radiology	근골격 영상 의학과
+N	Neurology	신경학
+NC	Nuclear Cardiology	핵 심장학
+NDN	Neurodevelopmental Disabilities (Psychiatry)	신경 발달 장애(정신 의학과)
+NDP	Neurodevelopmental Disabilities (Pediatrics)	신경 발달 장애(소아과)
+NEP	Nephrology	신장학
+NM	Nuclear Medicine	핵의학
+NP	Neuropathology	신경 병리학
+NPM	Neonatal-Perinatal Medicine	신생아 주산기 의학
+NR	Nuclear Radiology	핵 영상 의학
+NRN	Neurology/Diagnostic Radiology/Neuroradiology	신경학/진단 영상 의학/신경 영상 의학
+NS	Neurological Surgery	신경 외과
+NSP	Pediatric Surgery - Neurology	소아 외과 - 신경학
+NTR	Nutrition	영양
+OAR	Adult Reconstructive Orthopedics	성인 재건 정형외과
+OBG	Obstetrics and Gynecology	산부인과
+OBS	Obstetrics	산과
+OCC	Critical Care Medicine - Obstetrics and Gynecology	중환자 의학 - 산부인과
+OFA	Orthopedics - Foot and Ankle	정형외과 - 족부 및 족관절
+OM	Occupational Medicine	직업병 의학
+OMF	Oral and Maxillofacial Surgery	구강 및 악안면 외과
+OMM	Osteopathic Manipulative Medicine	정골 수기 의학
+OMO	Musculoskeletal Oncology	근골격 종양학
+ON	Medical Oncology	의학 종양학
+OP	Pediatrics Orthopedics	소아 정형외과
+OPH	Ophthalmology	안과
+ORS	Orthopedic Surgery	정형 외과
+ORD	Orthodontics	치과 교정과
+OS	Other Specialty	기타 전공
+OSS	Orthopedic Surgery Of The Spine	척추 정형 외과
+OT	Otology	이과
+OTO	Otolaryngology	이비인후과
+OTR	Orthopedic Trauma	정형 외과적 외상
+P	Psychiatry	정신 의학
+PA	Clinical Pharmacology	임상 약리학
+PAN	Pediatric Anesthesiology	소아 마취학
+PCC	Pulmonary Critical Care Medicine	폐 중환자 의학
+PCH	Chemical Pathology	화학 병리학
+PCP	Cytopathology	세포 병리학
+PCS	Pediatric Cardiothoracic Surgery	소아 심흉부 외과
+PD	Pediatrics	소아과
+PDA	Pediatric Allergy	소아 알레르기
+PDC	Pediatric Cardiology	소아 심장학
+PDD	Pediatric Dermatology	소아 피부과
+PDE	Pediatric Endocrinology	소아 내분비학
+PDI	Pediatric Infectious Diseases	소아 전염병
+PDO	Pediatric Otolaryngology	소아 이비인후과
+PDP	Pediatric Pulmonology	소아 호흡기 내과
+PDR	Pediatric Radiology	소아 영상 의학
+PDS	Pediatric Surgery - Surgery	소아 외과 - 외과
+PDT	Medical Toxicology - Pediatrics	의학 독성학 - 소아과
+PE	Pediatric Emergency Medicine - Emergency Medicine	소아 응급 의학 - 응급 의학
+PEM	Pediatric Emergency Medicine - Pediatrics	소아 응급 의학 - 소아과
+PFP	Forensic Psychiatry	법의 정신 의학
+PG	Pediatric Gastroenterology	소아 소화기 내과
+PHM	Pharmaceutical Medicine	제약 의학
+PHO	Pediatric Hematology-Oncology	소아 혈액학 종양학
+PHP	Public Health and General Preventive Medicine	공중 보건 및 일반 예방 의학
+PLI	Clinical and Lab Immunology - Pediatrics	임상 실험 면역학 - 소아과
+PLM	Palliative Medicine	완화 치료 의학
+PM	Physical Medicine and Rehabilitation	물리 요법 의학 및 재활 치료
+PMD	Pain Medicine	통증 의학
+PMR	Pain Management (Physical Medicine and Rehabilitation)	통증 관리(물리 요법 의학 및 재활 치료)
+PN	Pediatric Nephrology	소아 신장학
+PO	Pediatric Ophthalmology	소아 안과
+PP	Pediatric Pathology	소아 병리학
+PPR	Pediatric Rheumatology	소아 류머티스학
+PRM	Pediatric Rehabilitation Medicine	소아 재활 의학
+PRO	Proctology	직장학
+PS	Plastic Surgery	성형 외과
+PSH	Plastic Surgery Within The Head and Neck	두경부 성형 외과
+PTH	Anatomic and Clinical Pathology	해부 임상 병리학
+PTX	Medical Toxicology - Preventive Medicine	의학 독성학 - 예방 의학
+PUD	Pulmonary Diseases	폐 질환
+PYA	Psychoanalysis	정신 분석
+PYG	Geriatric Psychiatry	노인 정신 의학
+R	Radiology	영상 의학
+REN	Reproductive Endocrinology	생식 내분비학
+RHU	Rheumatology	류머티스학
+RNR	Neuroradiology	신경 영상 의학
+RO	Radiation Oncology	방사선 종양학
+RP	Radiological Physics	방사선 물리학
+SM	Sleep Medicine	수면 의학
+SP	Selective Pathology	선택 병리학
+SLP	Speech-Language Pathologist	언어치료사
+UP	Pediatric Urology	소아 비뇨기과

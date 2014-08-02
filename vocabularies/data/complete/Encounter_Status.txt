@@ -1,0 +1,5 @@
+Abs	Missed	빼먹음
+Can	Cancelled	취소됨
+Cmp	Completed	완료됨
+Sch	Scheduled	예약됨
+Tbs	To be scheduled	예약 예정

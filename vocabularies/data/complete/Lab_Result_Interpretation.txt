@@ -1,0 +1,3 @@
+normal	Normal	정상
+critical	Critical	위험
+abnormal	Abnormal	비정상

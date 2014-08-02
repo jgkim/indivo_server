@@ -147,4 +147,8 @@
   <call name="smart_generic" method="GET" url="/records/{RECORD_ID}/{MODEL_NAME}/" />
   <call name="smart_generic_instance" method="GET" url="/records/{RECORD_ID}/{MODEL_NAME}/{MODEL_ID}" />
   <call name="get_version" method="GET" url="/version" />
+  <call name="vocabulary_list" method="GET" url="/vocabularies/" />
+  <call name="vocabulary_meta" method="GET" url="/vocabularies/{VOCABULARY_ID}" />
+  <call name="vocabulary_query" method="GET" url="/vocabularies/{VOCABULARY_ID}/" />
+  <call name="vocabulary_term_meta" method="GET" url="/vocabularies/{VOCABULARY_ID}/{TERM_ID}" />
 </api>

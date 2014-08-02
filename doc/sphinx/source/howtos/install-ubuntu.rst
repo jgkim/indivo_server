@@ -303,7 +303,7 @@ Other
 		
   * Loading Coding Systems (optional)::
 
-		python load_codingsystems.py
+		python load_vocabularies.py
 
 You must run ``reset.py`` or ``utils/importer.py`` before the accounts and records you set up in indivo_data.xml exist.
 

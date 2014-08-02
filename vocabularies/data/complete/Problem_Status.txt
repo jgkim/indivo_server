@@ -1,0 +1,4 @@
+55561003	Active (qualifier value)	Active	활성	적극
+73425007	Inactive (qualifier value)	Inactive	비활성	
+7087005	Intermittent (qualifier value)	Intermittent	간헐적	간헐
+413322009	Problem resolved (finding)	Problem resolved	해결됨	

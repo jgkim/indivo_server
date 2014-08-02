@@ -1,0 +1,89 @@
+198288003	anxiety and/or feeling of impending doom
+74776002	itchy eyes
+420103007	watery eyes
+272034001	nasal congestion / runny nose
+126485001	"hives (red, raised, itchy bumps)"
+418107008	unconsciousness
+7011001	hallucinations
+309585006	fainting and/or loss of consciousness
+91175000	seizures
+271789005	dizziness and/or light-headedness
+193462001	insomnia
+77692006	excessive sleeping
+386661006	fever
+84229001	fatigue
+415690000	sweating
+95629002	excessive crying of infant
+48167000	memory loss
+260912008	twitching
+112105008	smell disturbance
+271801002	taste disturbance
+22325002	problem walking
+302289002	lack of coordination
+44695005	paralysis
+161882006	stiff neck
+13791008	weakness
+95666008	facial weakness
+68962001	muscle aches
+80910005	itching or numbness or tingling
+271807003	rash
+65124004	swelling
+18165001	jaundice or yellow skin
+398979000	paleness
+238810007	flushing
+424131007	easy bruising
+79890006	loss of appetite
+161833006	weight gain
+267024001	weight loss
+85456006	growth problem
+17173007	abnormal thirst
+25064002	headache
+162397003	throat pain
+38160000	voice problem
+267095009	speech problem
+12441001	nosebleed
+76067001	sneezing
+3424008	fast heart rate
+80313002	heart palpitations
+88610006	heart murmur
+27942005	shock
+30746006	enlarged glands
+68978004	hyperventilation
+267036007	shortness of breath
+271823003	fast breathing
+56018004	wheezing
+70407001	noisy breathing
+49727002	cough
+66857006	coughing up blood
+274708000	green or yellow phlegm
+23924001	chest tightness
+279084009	chest discomfort
+75483001	painful breathing
+65958008	hiccough
+16932000	nausea and/or vomiting
+422587007	nausea only
+300359004	vomiting only
+16331000	heartburn
+288939007	difficulty swallowing
+271832001	gas
+72042002	leakage of stool
+14760008	constipation
+62315008	diarrhea
+49650001	painful urination
+267064002	retention of urine
+165232002	leakage of urine
+162116003	frequent urination
+271845002	reduced urination
+21522001	abdominal pain
+22253000	pain
+60728008	abdominal swelling
+417186004	low blood count
+274774002	elevated liver enzymes
+5758002	blood infection
+128088003	abnormal blood clotting
+442769000	visual changes
+251358005	hearing changes
+46670006	abnormal reflexes
+371622005	high blood pressure
+12763006	low blood pressure
+39579001	anaphylactic shock

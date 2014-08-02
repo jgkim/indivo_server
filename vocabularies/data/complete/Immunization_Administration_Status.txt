@@ -1,0 +1,3 @@
+doseGiven	Dose Given	접종
+notAdministered	Not Administered	접종 안함
+partialDose	Dose Partially Administered	부분 접종

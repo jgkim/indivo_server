@@ -1,0 +1,2 @@
+2339-0	Whole Blood	전혈
+2345-7	Serum or Plasma	혈장 및 혈청

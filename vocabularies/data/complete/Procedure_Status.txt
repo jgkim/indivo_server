@@ -1,0 +1,4 @@
+385657008	Abandoned (qualifier value)	Abandoned	무산
+89925002	Canceled (qualifier value) | Cancelled (qualifier value)	Canceled	취소
+410523001	Post-starting action status (qualifier value)	Post-starting action status	진행
+385658003	Done (qualifier value)	Done	완료

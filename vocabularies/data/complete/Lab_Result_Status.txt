@@ -1,0 +1,3 @@
+correction	Correction	정정
+preliminary	Preliminary	예비
+final	Final	최종

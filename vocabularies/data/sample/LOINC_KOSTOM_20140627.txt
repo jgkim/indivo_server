@@ -1,0 +1,1 @@
+100-8   Cefoperazone Islt MIC   Cefoperazone [Susceptibility] by Minimum inhibitory concentration (MIC) 세포페라존:감수성:검사시점:분리주:정량 or 순위척도:억제>최소농도        C0362189

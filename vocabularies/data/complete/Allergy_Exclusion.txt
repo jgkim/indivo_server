@@ -1,0 +1,4 @@
+160244002	NKA - No known allergies | No known allergies (situation) | No known allergies (context-dependent category)	No known allergies	알려진 알레르기가 없음
+428607008	No known environmental allergy (situation)	No known environmental allergy	알려진 환경 알레르기가 없음
+429625007	No known food allergy (situation)	No known food allergy	알려진 음식물 알레르기가 없음
+409137002	No known drug allergies (context-dependent category) | NKDA - No known drug allergies | No known drug allergies (situation) | No known history of drug allergy (situation) | No known history of drug allergy | No known medicine allergy	No known drug allergies	알려진 약물 알레르기 기록이 없음

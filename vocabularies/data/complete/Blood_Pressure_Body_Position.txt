@@ -1,0 +1,3 @@
+40199007	Lying flat on back | Lying supine | Lying on back | Supine position | Prostration, NOS | Supine body position (finding)	Supine body position	누워 있음	
+33586001	Sitting | Sitting position (finding)	Sitting position	앉아 있음	좌위
+10904000	Standing | Stance position | Standing position | Orthostatic body position (finding)	Orthostatic body position	서 있음	직립

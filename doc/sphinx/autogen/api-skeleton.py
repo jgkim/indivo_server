@@ -2024,7 +2024,7 @@ SDMX Example:
         },
     "data_fields":{
         },
-    "description":"List available codingsystems. NOT IMPLEMENTED.",
+    "description":"List available vocabularies.",
     "return_desc":":http:statuscode:`500`, as the system cannot process the call.",
     "return_ex":'''
 [{"short_name": "umls-snomed", "name": "UMLS SNOMED", "description" : "..."},
@@ -2049,8 +2049,8 @@ SDMX Example:
         },
     "data_fields":{
         },
-    "description":"Query a codingsystem for a value.",
-    "return_desc":":http:statuscode:`200` with JSON describing codingsystems entries that matched *q*, or :http:statuscode:`404` if ``SYSTEM_SHORT_NAME`` is invalid.",
+    "description":"Query a vocabulary for a value.",
+    "return_desc":":http:statuscode:`200` with JSON describing vocabularies entries that matched *q*, or :http:statuscode:`404` if ``SYSTEM_SHORT_NAME`` is invalid.",
     "return_ex":'''
 [{"abbreviation": null, "code": "38341003", "consumer_value": null,
   "umls_code": "C0020538",

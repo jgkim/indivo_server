@@ -1,0 +1,5 @@
+255604002	Mild (qualifier value)	Mild	가벼운	
+442452003	Life threatening severity (qualifier value)	Life threatening severity	생명을 위협	
+6736007	Midgrade | Moderate (severity modifier) | Moderate (severity modifier) (qualifier value)	Moderate	중간	
+399166001	Fatal (qualifier value)	Fatal	치명적	치사
+24484000	Severe (severity modifier) | High grade | Gravis | Severely | Severe (severity modifier) (qualifier value)	Severe	심각	중증
