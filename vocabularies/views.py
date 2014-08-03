@@ -10,6 +10,7 @@ import json
 
 from django.http import *
 from django.db.models import Q
+from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 from models import *
 from serializers import JSONSerializer
 from data.utils import utf_8_encoder
@@ -41,8 +42,9 @@ def vocabulary_query(request, vocabulary_id):
     **ARGUMENTS**:
     
     * *request*: The incoming Django request object. ``request.GET`` may contain
-      *q*, the keyword to search for, *lang*, the language to search in, and
-      *limit*, the maximum number of terms to return.
+      *q*, the keyword to search for, *lang*, the language to search in, 
+      *limit*, the maximum number of terms per page to return, and *page*,
+      the current page to return.
 
     * *vocabulary_id*: The slug identifier of the vocabulary, i.e. ``snomed-ct``.
 
@@ -65,6 +67,7 @@ def vocabulary_query(request, vocabulary_id):
     keyword = request.GET.get('q', None)
     language = request.GET.get('lang', None)
     limit = request.GET.get('limit', 100)
+    page = request.GET.get('page', 1)
 
     query = Q(**{'vocabulary': vocabulary})
     if keyword is not None and len(keyword) > 0:
@@ -75,8 +78,16 @@ def vocabulary_query(request, vocabulary_id):
 
         query = query & Q(**{label: keyword})
 
+    paginator = Paginator(Term.objects.filter(query), limit)
+    try:
+        terms = paginator.page(page)
+    except PageNotAnInteger:
+        terms = paginator.page(1)
+    except EmptyPage:
+        terms = paginator.page(paginator.num_pages)
+
     serializer = JSONSerializer()
-    serializer.serialize(Term.objects.filter(query)[:limit], ensure_ascii=False)
+    serializer.serialize(terms.object_list, ensure_ascii=False)
 
     return HttpResponse(utf_8_encoder(serializer.getvalue()), mimetype='application/json')
 
